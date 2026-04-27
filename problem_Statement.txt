@@ -1,0 +1,85 @@
+================================================================================
+  SDN-BASED NETWORK UTILIZATION MONITOR
+================================================================================
+
+PROJECT OVERVIEW
+  Build an SDN-based Network Utilization Monitor using Mininet and an 
+  OpenFlow controller (POX) that measures, controls, and visualizes 
+  bandwidth usage in a simulated network.
+
+
+================================================================================
+  CORE REQUIREMENTS
+================================================================================
+
+1. TOPOLOGY (Mininet)
+   ──────────────────
+   Create a custom Mininet topology with at least:
+     • 1 OpenFlow switch
+     • 3–4 hosts
+   
+   Features:
+     • Ensure hosts can generate traffic (e.g., using iperf)
+     • Support for inter-host communication
+
+
+2. CONTROLLER (POX)
+   ────────────────────
+   Implement a controller that:
+     • Handles packet_in events from switches
+     • Installs explicit OpenFlow flow rules (match–action)
+     • Monitors traffic using flow statistics (byte counters)
+     • Computes bandwidth utilization (bytes/sec) per flow or host
+
+
+3. TRAFFIC MONITORING LOGIC
+   ────────────────────────
+   Implement periodic monitoring:
+     • Poll flow statistics from switches
+     • Estimate upload/download bandwidth
+     • Calculate total data transferred
+     • Maintain real-time utilization metrics
+
+
+4. VISUALIZATION (Web Interface)
+   ─────────────────────────────
+   
+   Backend:
+     • Python (Flask/FastAPI) to expose API endpoints for utilization data
+   
+   Frontend:
+     • Simple webpage (HTML + JavaScript) that:
+       - Fetches data periodically from backend
+       - Displays current bandwidth usage
+       - Shows total data usage
+       - Live-updating graph (e.g., Chart.js)
+
+
+================================================================================
+  FUNCTIONAL DEMONSTRATION
+================================================================================
+
+The implementation must clearly demonstrate:
+   • Controller–switch interaction
+   • Flow rule installation and behavior
+   • Network behavior using tools like Wireshark / iperf
+
+================================================================================
+  VALIDATION REQUIREMENTS
+================================================================================
+
+Output must clearly reflect:
+   • Changes in bandwidth based on traffic conditions
+   • Correct enforcement of flow rules
+   • Basic validation: logs, metrics, or comparison results
+
+
+================================================================================
+  CONSTRAINTS
+================================================================================
+
+   • Must be implemented individually
+   • Use only:
+     - Mininet for network simulation
+     - POX as OpenFlow controller
+     - Python + simple web UI for visualization
